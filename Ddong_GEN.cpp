@@ -2,9 +2,9 @@
 
 Ddong_GEN::Ddong_GEN()
 {
-	ddong_gen_period = 200.0f; //ë°€ë¦¬ì´ˆë‹¨ìœ„
+	ddong_gen_period = 200.0f; //¹Ð¸®ÃÊ´ÜÀ§
 
-	ddong_texture.loadFromFile("C:\\Users\\USER\\Desktop\\Ddong_release_code\\ddong.png");
+	ddong_texture.loadFromFile("ddong.png");
 	ddong.setTexture(ddong_texture);
 
 }
@@ -15,11 +15,11 @@ void Ddong_GEN::update(Score& score)
 
 	if (time >= ddong_gen_period)
 	{
-		Ddong p(std::rand() % 360, std::rand() % 6 + 0.7, ddong_texture, ddong); 
+		Ddong p(std::rand() % 360, std::rand() % 6 + 0.7, ddong_texture, ddong);
 		ddongs.push_back(p);
 		clock.restart();
 	}
-	
+
 	for (auto& _e : ddongs)
 	{
 		_e.update(score);

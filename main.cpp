@@ -13,15 +13,13 @@ int main()
 
 	RenderWindow window(VideoMode(360, 480), "Hello SFML");
 	window.setFramerateLimit(60);
-	
-	
+
+
 
 	Font font;
-	if (!font.loadFromFile("C:\\Users\\USER\\Desktop\\Ddong_release_code\\arial.ttf"))
-	{
-		printf("Can't load your font, check your font file or directory\n");
-	}
+	font.loadFromFile("arial.ttf");
 	
+
 	People people;
 	Ddong_GEN ddongs;
 	Score score;
@@ -32,11 +30,11 @@ int main()
 	text.setCharacterSize(15);
 	int cur_score;
 
-	
+
 
 	while (window.isOpen())
 	{
-		
+
 		Event event;
 		while (window.pollEvent(event))
 		{

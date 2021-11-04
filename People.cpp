@@ -3,11 +3,11 @@
 
 People::People()
 {
-	people_texture.loadFromFile("C:\\Users\\USER\\Desktop\\Ddong_release_code\\people.PNG");
-	hit_people_texture.loadFromFile("C:\\Users\\USER\\Desktop\\Ddong_release_code\\hit_people.png");
-	buffer.loadFromFile("C:\\Users\\USER\\Desktop\\Ddong_release_code\\hit_sound.ogg");
+	people_texture.loadFromFile("people.PNG");
+	hit_people_texture.loadFromFile("hit_people.png");
+	buffer.loadFromFile("hit_sound.ogg");
 	sound.setBuffer(buffer);
-	
+
 	people.setTexture(people_texture);
 
 	people.setTextureRect(IntRect(0, 0, 30, 30));
@@ -38,22 +38,22 @@ void People::moveRight()
 void People::update(Ddong_GEN& ddongs, Score& score)
 {
 	/*
-		ë˜¥ì— ë§žì•˜ëŠ”ì§€ íŒë‹¨í•˜ëŠ” ì½”ë“œì™€ ë§žì•˜ì„ ë•Œ ë™ìž‘ì— ëŒ€í•œ ì½”ë“œ ìž‘ì„±
+		¶Ë¿¡ ¸Â¾Ò´ÂÁö ÆÇ´ÜÇÏ´Â ÄÚµå¿Í ¸Â¾ÒÀ» ¶§ µ¿ÀÛ¿¡ ´ëÇÑ ÄÚµå ÀÛ¼º
 	*/
 	time = clock.getElapsedTime().asSeconds();
 	FloatRect pos = people.getGlobalBounds();
 
-	//ë˜¥ì   ížˆíŠ¸ë°•ìŠ¤ bool ì²´í¬
+	//¶ËÁ¨ È÷Æ®¹Ú½º bool Ã¼Å©
 	hitted = ddongs.checkHit(pos);
 
 	if (time >= 1.0f)
 		people.setTexture(people_texture);
-	
+
 	if (hitted == true)
 	{
-		
+
 		sound.play();
-	    
+
 		people.setTexture(hit_people_texture);
 
 		clock.restart();

@@ -17,5 +17,5 @@ void Score::downScore()
 
 int Score::update()
 {
-	return score;	
+	return score;
 }
